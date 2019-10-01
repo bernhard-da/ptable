@@ -10,7 +10,7 @@
 #' @slot icat (integer) categorized original frequencies i
 #' @slot table (character) type of table: frequency counts (cnts) or magnitude (nums)
 #' @slot step (integer) step width between 0 and 1
-#' @slot type (character) type of 
+#' @slot type (character) type of
 #' @name ptable_params-class
 #' @rdname ptable_params-class
 #' @export
@@ -56,7 +56,7 @@ setClass("ptable_params",
 
            if (is_empty(object@label))
              stop("Please label your pTable (without blanks)!")
-           
+
            if( !(all(object@D>0)) )
              stop("Parameter D: must be a positive scalar or vector of positive integer(s)\n")
 
@@ -65,19 +65,19 @@ setClass("ptable_params",
 
            if (is_empty(object@table))
              stop("Please define your type of table: either 'cnts' or 'nums'.")
-           
+
            if( !(object@table %in% c("cnts","nums")) )
              stop("Type of table must be either 'cnts' or 'nums'.", call. = FALSE)
-           
+
            if( !(object@type %in% c("all","even","odd")) )
              stop("Type must be either 'all', 'even' or 'odd'.", call. = FALSE)
-           
+
            #if( (object@step <= 0 | object@step > 1) )
-          #   stop("Parameter 'step': must be a postivie value and less then 1.", call. = FALSE)
-           
+           #   stop("Parameter 'step': must be a postivie value and less then 1.", call. = FALSE)
+
            if ((object@table=="nums") & is_empty(object@icat))
              stop("You specified a freuency table (table='nums'). So, please define the argument 'icat' !")
-           
+
            return(TRUE)
          })
 NULL
@@ -90,7 +90,7 @@ NULL
 #' @slot empResults (data.table) ...
 #' @slot pParams a \code{\linkS4class{ptable_params}} object
 #' @slot tStamp (character) ...
-#' @slot type (character) 
+#' @slot type (character)
 #' @slot table (character) type of table: frequency counts (cnts) or magnitude (nums)
 #' @name ptable-class
 #' @rdname ptable-class
